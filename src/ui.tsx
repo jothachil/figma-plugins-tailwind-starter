@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import "./ui.css";
 import { pluginApi } from "./api";
-
+import Button from "./components/Button";
 declare function require(path: string): any;
 
 function App() {
@@ -20,34 +20,8 @@ function App() {
 
   return (
     <main className="bg-white h-[100vh] flex flex-col justify-center items-center w-full">
-      <header className="flex flex-col justify-center items-center mb-4">
-        <img src={require("./logo.svg")} />
-        <h2 className="text-2xl">Rectangle Creator</h2>
-      </header>
-      <section className="flex flex-row justify-center items-center space-x-2  mb-4">
-        <label htmlFor="input">Count</label>
-        <input
-          className="border border-neutral-100 rounded-md p-2"
-          id="input"
-          type="number"
-          min="0"
-          ref={inputRef}
-        />
-      </section>
-      <footer className="flex flex-row justify-center items-center space-x-2">
-        <button
-          className="bg-blue-500 text-white rounded-md py-2 px-3"
-          onClick={onCreate}
-        >
-          Create
-        </button>
-        <button
-          className="border border-neutral-300 rounded-md py-2 px-3"
-          onClick={onCancel}
-        >
-          Cancel
-        </button>
-      </footer>
+      <Button label="Create" onClick={onCreate} />
+      <Button label="Cancel" onClick={onCancel} />
     </main>
   );
 }
